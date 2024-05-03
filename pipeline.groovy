@@ -92,5 +92,6 @@ pipeline {
             steps {
                 echo "Pipeline Script has been Executed Successfully"
             }
+        }
     }
 }
