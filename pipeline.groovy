@@ -26,7 +26,7 @@ pipeline {
             }
             post {
                 success {
-                    emailtext subject: "Tests status email",
+                    emailext subject: "Tests status email",
                     body: "Unit & Integration Tests were successful",
                     to: "dharanireddii08@gmail.com",
                     attachLog: true
@@ -34,7 +34,7 @@ pipeline {
                             
                 }
                 failure {
-                    emailtext subject: "Tests status email",
+                    emailext subject: "Tests status email",
                     body: "Unit & Integration Tests failed",
                     to: "dharanireddii08@gmail.com",
                     attachLog: true
@@ -56,13 +56,13 @@ pipeline {
             }
             post {
                 success {
-                    emailtext subject: "Security Scan status email",
+                    emailext subject: "Security Scan status email",
                     body: "Security Scan was successful",
                     to: "dharanireddii08@gmail.com",
                      attachLog: true
                 }
                 failure {
-                    emailtext  subject: "Security Scan status email",
+                    emailext  subject: "Security Scan status email",
                     body: "Security Scan failed",
                     to: "dharanireddii08@gmail.com",
                      attachLog: true
