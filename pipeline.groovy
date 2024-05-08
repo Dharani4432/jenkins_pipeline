@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building the code...'
+                echo "Building the code..."
                 echo "Fetch the source code from the directory path: $DIRECTORY_PATH"
                 echo "Compile the code using maven Tool"
 
@@ -19,25 +19,25 @@ pipeline {
         
         stage('Unit and Integration Tests') {
             steps {
-                echo 'Running unit tests...'
+                echo "Running unit tests..."
                 echo "maven test tool" 
-                echo 'Running integration tests...'
+                echo "Running integration tests..."
                 echo "selenium test tool"
             }
             post {
                 success {
-                    emailtext to: "dharanireddii08@gmail.com",
-                    subject: "Tests status email",
+                    emailtext subject: "Tests status email",
                     body: "Unit & Integration Tests were successful",
+                    to: "dharanireddii08@gmail.com",
                     attachLog: true
                              
                             
                 }
                 failure {
-                    emailtext to: "dharanireddii08@gmail.com",
-                    subject: "Tests status email",
+                    emailtext subject: "Tests status email",
                     body: "Unit & Integration Tests failed",
-                     attachLog: true
+                    to: "dharanireddii08@gmail.com",
+                    attachLog: true
                 }
             }
         }
@@ -56,15 +56,15 @@ pipeline {
             }
             post {
                 success {
-                    emailtext to: "dharanireddii08@gmail.com",
-                    subject: "Security Scan status email",
+                    emailtext subject: "Security Scan status email",
                     body: "Security Scan was successful",
+                    to: "dharanireddii08@gmail.com",
                      attachLog: true
                 }
                 failure {
-                    emailtext to: "dharanireddii08@gmail.com",
-                    subject: "Security Scan status email",
+                    emailtext  subject: "Security Scan status email",
                     body: "Security Scan failed",
+                    to: "dharanireddii08@gmail.com",
                      attachLog: true
                 }
             }
